@@ -1,0 +1,12 @@
+Avancer(Lire); Tourner(Lire);
+TantQue {Lire > 0 Et Lire <10} 
+Faire 
+	Si {Lire=2 Ou Lire=5}
+		Alors Ecrire((Lire-1));
+	Fin;
+	Ecrire((Lire+2));
+Fin;
+Avancer(7);    Tourner(-3);
+Avancer(Lire); Tourner(1);
+Avancer(Lire); Tourner((2-1));
+Avancer(Lire); Ecrire((Lire+10));  

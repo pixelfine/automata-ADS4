@@ -1,0 +1,52 @@
+%%
+%public
+%class Lexer
+%unicode
+%type Token
+%line
+%column
+
+%{
+	
+%}
+
+%yylexthrow{
+	LexerException
+%yylexthrow}
+
+blank = "\n" | "\r" | " " | "\t"
+nombre = -?[1-9][0-9]* | 0
+
+%%
+
+<YYINITIAL> {
+	"Avancer"			{return new Token (Sym.AVANCER);}
+	"Tourner"			{return new Token(Sym.TOURNER);}
+	"Ecrire"			{return new Token(Sym.ECRIRE);}
+	"Lire"				{return new Token(Sym.LIRE);}
+	";"					{return new Token(Sym.PVIRG);}
+	"("					{return new Token(Sym.LPAR);}
+	"{"					{return new Token(Sym.LACC);}
+	"}"					{return new Token(Sym.RACC);}
+	")"					{return new Token(Sym.RPAR);}
+	"+"					{return new Token(Sym.PLUS);}
+	"-"					{return new Token(Sym.MOINS);}
+	"Si"				{return new Token(Sym.SI);}
+	"Alors"				{return new Token(Sym.ALORS);}
+	"Fin"				{return new Token(Sym.FIN);}
+	"TantQue"			{return new Token(Sym.TANTQUE);}
+	"Faire" 			{return new Token(Sym.FAIRE);}
+	"{"					{return new Token(Sym.LACC);}
+	"}"					{return new Token(Sym.RACC);}
+	">"					{return new Token(Sym.SUP);}
+	"<"					{return new Token(Sym.INF);}
+	"="					{return new Token(Sym.EGALE);}
+	"Et"				{return new Token(Sym.ET);}
+	"Ou"				{return new Token(Sym.Ou);}
+	"Essayer"			{return new Token(Sym.ESSAYER);}
+	"Avec"				{return new Token(Sym.AVEC);}
+	{nombre}			{return new IntToken(Sym.NOMBRE, Integer.parseInt(yytext()));}
+	{blank}	 			{}
+	<<EOF>>				{return new Token(Sym.EOF);}
+	[^]					{throw new LexerException(yyline, yycolumn, yytext());}
+}

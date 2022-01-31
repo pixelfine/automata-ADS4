@@ -1,0 +1,8 @@
+Avancer(Lire); Tourner(Lire);
+Si Lire > 3 
+	Alors Ecrire((Lire+100));
+Fin;
+Avancer(7);    Tourner(-3);
+Avancer(Lire); Tourner(1);
+Avancer(Lire); Tourner((2-1));
+Avancer(Lire); Ecrire((Lire+10));  

@@ -1,0 +1,5 @@
+Avancer(Lire-1); 
+Tourner(2); 
+Avancer(1); 
+Tourner(-2); 
+Avancer(4);
